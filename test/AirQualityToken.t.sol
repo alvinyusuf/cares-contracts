@@ -6,12 +6,10 @@ import {AirQualityToken} from "../src/AirQualityToken.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Pausable} from "@openzeppelin/contracts/utils/Pausable.sol";
 
-
 contract AirQualityTokenTest is Test {
     AirQualityToken public token;
     address public owner;
     address public testUser;
-
 
     function setUp() public {
         // Set up the contract and initial conditions
@@ -40,7 +38,7 @@ contract AirQualityTokenTest is Test {
         // First increase AQI to have tokens to burn
         token.updateAQI(100);
         uint256 initialSupply = token.totalSupply();
-        
+
         // Then decrease AQI
         uint256 newAQI = 50;
         token.updateAQI(newAQI);
@@ -82,11 +80,11 @@ contract AirQualityTokenTest is Test {
     function testBurnDoesNotReduceBelowMinSupply() public {
         // First, increase AQI to mint tokens
         token.updateAQI(100);
-        
+
         // Calculate burn amount that would reduce supply below MIN_SUPPLY
         uint256 minSupply = token.MIN_SUPPLY();
         uint256 currentSupply = token.totalSupply();
-        
+
         // Attempt to reduce AQI significantly
         token.updateAQI(1);
 

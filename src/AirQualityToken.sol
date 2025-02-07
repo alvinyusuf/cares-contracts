@@ -9,7 +9,7 @@ import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol
 contract AirQualityToken is ERC20, Ownable, Pausable, ReentrancyGuard {
     uint256 public lastAQI;
 
-    uint256 public constant MIN_SUPPLY = 10000 * 10**18;
+    uint256 public constant MIN_SUPPLY = 10000 * 10 ** 18;
 
     event AQIUpdated(uint256 newAQI, uint256 tokenSupply);
 
