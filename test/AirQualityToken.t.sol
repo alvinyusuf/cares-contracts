@@ -83,7 +83,6 @@ contract AirQualityTokenTest is Test {
 
         // Calculate burn amount that would reduce supply below MIN_SUPPLY
         uint256 minSupply = token.MIN_SUPPLY();
-        uint256 currentSupply = token.totalSupply();
 
         // Attempt to reduce AQI significantly
         token.updateAQI(1);
